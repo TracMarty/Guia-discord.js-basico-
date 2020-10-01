@@ -9,3 +9,5 @@ Esta es una pequeña guía de discord.js que de seguro te servirá
 
 
 Visita mi servidor de Discord para las dudas
+
+https://discord.gg/S9WTzBN
