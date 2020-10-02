@@ -17,6 +17,7 @@ const embed = new Discord.MessageEmbed()
 .setThumbnail("link del gif")
 .setFooter("Comando ejecutado por: " + message.member.displayName, message.author.displayAvatarURL())
 .setTimestamp();
+  message.channel.send(embed);
 }
 });
 
