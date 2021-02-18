@@ -2,13 +2,29 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const {token, prefix} = require ("./config.json")
 
+
+function presence(){
+client.user.setPresence({
+status: "online",
+  activity: {
+    name: "https://tracmarty.ml",
+    type: "WATCHING"
+  }
+})
+}
+
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`Estoy logueado como ${client.user.tag}`);
+  presence()
 });
 
 
 
-client.on("message", message =>{
+client.on("message", async (message) =>{
+  if(message.author.bot) return;
+  if(message.content.startsWith(prefix)) return;
+  if(!message.guild) return;
+
 if(message.content.startsWith(prefix + 'help')){
 const embed = new Discord.MessageEmbed()
 .setTitle("Comandos del bot")
@@ -18,10 +34,13 @@ const embed = new Discord.MessageEmbed()
 .setFooter("Comando ejecutado por: " + message.member.displayName, message.author.displayAvatarURL())
 .setTimestamp();
   message.channel.send(embed);
+  console.log('Embed enviado correctamente')
 }
+  
+   
+  
 });
 
-///////////////////un ejemplo de un embed para tu bot:)
 
 
 
@@ -29,4 +48,7 @@ const embed = new Discord.MessageEmbed()
 
 
 
-client.login('acá va tu token');
+
+
+
+client.login(token);
