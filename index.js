@@ -15,7 +15,7 @@ status: "online",
 
 client.on('ready', () => {
   console.log(`Estoy logueado como ${client.user.tag}`);
-  presence()
+  presence();
 });
 
 
