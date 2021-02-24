@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const {token, prefix} = require ("./config.json")
 
 
-function presence(){
+async function presence(){
 client.user.setPresence({
 status: "online",
   activity: {
@@ -20,12 +20,12 @@ client.on('ready', () => {
 
 
 
-client.on("message", async (message) =>{
-  if(message.author.bot) return;
-  if(message.content.startsWith(prefix)) return;
-  if(!message.guild) return;
+client.on("message", async (message) => {
+  if (message.author.bot) return;
+  if (message.content.startsWith(prefix)) return;
+  if (!message.guild) return;
 
-if(message.content.startsWith(prefix + 'help')){
+if (message.content.startsWith(prefix + 'help')) {
 const embed = new Discord.MessageEmbed()
 .setTitle("Comandos del bot")
 .setDescription("Esto es un ejemplo de guía (discord.js)")
