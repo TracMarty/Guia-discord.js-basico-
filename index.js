@@ -25,6 +25,18 @@ client.on("message", async (message) => {
   if (message.content.startsWith(prefix)) return;
   if (!message.guild) return;
 
+ const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+  
+if (message.content.startsWith(prefix + 'say')) {
+let r = args.join(" ");
+if(!r) return message.channel.send("Dime lo que quieres que yo diga");
+
+message.channel.send(r);
+  
+}
+
+
 if (message.content.startsWith(prefix + 'help')) {
 const embed = new Discord.MessageEmbed()
 .setTitle("Comandos del bot")
